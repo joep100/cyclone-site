@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cyclone | Same-day couriers, Dublin</title>
+<meta name="description" content="Cyclone: same-day, nationwide and international courier delivery from Dublin since 1988. Our own riders, not crowdsourced.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=IBM+Plex+Serif:ital,wght@1,300;1,400&amp;display=swap">
+<style>
+body{margin:0;background:#000000}
+a{color:#ffffff}a:hover{color:#ffffff;text-decoration-thickness:3px}
+.door:hover .door-word,.door:focus-visible .door-word{transform:translateX(18px);color:#FFCC00}
+.door-word{transition:transform .5s cubic-bezier(.16,1,.3,1),color .25s ease}
+.rise{animation:after 1s cubic-bezier(.16,1,.3,1) .3s both}
+.after{animation:after 1s cubic-bezier(.16,1,.3,1) .7s both}
+@keyframes after{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes ride{from{transform:translateX(110%)}to{transform:translateX(0)}}
+@keyframes spin-rear{from{transform:rotate(720deg)}to{transform:rotate(0deg)}}
+@keyframes spin-front{from{transform:rotate(1020deg)}to{transform:rotate(0deg)}}
+.wheel{transform-box:fill-box;transform-origin:center}
+@supports (animation-timeline: view()){
+.ride{animation:ride linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+.wheel{animation:spin-rear linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+.wheel-front{animation-name:spin-front}
+}
+@media (prefers-reduced-motion: reduce){.ride,.wheel,.rise,.after{animation:none}}
+.blink{animation:blink 1.4s steps(1) infinite}
+@keyframes blink{0%,55%{opacity:1}56%,100%{opacity:.15}}
+.route{transition:color .2s ease,background-color .2s ease}
+.route:hover,.route:focus-visible{background-color:#FFCC00;color:#000000;transition:color .2s ease .42s,background-color .25s ease .42s}
+.route rect{fill:none;stroke:#FFCC00;stroke-width:2;stroke-dasharray:100 100;stroke-dashoffset:100;transition:stroke-dashoffset .25s ease}
+.route:hover rect,.route:focus-visible rect{stroke-dashoffset:0;transition:stroke-dashoffset .45s cubic-bezier(.6,0,.25,1)}
+.route .dot{transition:background-color .2s ease}
+.route:hover .dot,.route:focus-visible .dot{animation:none;background-color:#000000 !important;transition:background-color .2s ease .42s}
+@media (prefers-reduced-motion: reduce){.blink{animation:none}.route,.route rect,.route .dot{transition:none!important}}
+.menu-in{animation:menuIn .55s cubic-bezier(.16,1,.3,1) both}
+@keyframes menuIn{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.menu-item{animation:after .8s cubic-bezier(.16,1,.3,1) both}
+.menu-item:hover .door-word,.menu-item:focus-visible .door-word{color:#FFCC00;transform:translateX(18px)}
+.menu-bike{animation:menuRide 2.8s cubic-bezier(.3,.55,.25,1) .2s both}
+@keyframes menuRide{from{transform:translateX(110vw)}to{transform:translateX(0)}}
+.menu-bike .wheel{animation:spin-rear 2.8s cubic-bezier(.3,.55,.25,1) .2s both !important;animation-timeline:auto !important}
+.menu-bike .wheel-front{animation-name:spin-front !important}
+@media (prefers-reduced-motion: reduce){.menu-in,.menu-item,.menu-bike,.menu-bike .wheel{animation:none !important}}
+.menu-btn{display:none !important}
+@media (max-width: 900px){.hud-nav{display:none !important}.menu-btn{display:inline-flex !important}}
+.door-tag{align-self:flex-start}
+.door .tag-bar{transform-origin:left;transform:scaleX(.35);transition:transform .45s cubic-bezier(.6,0,.25,1),background-color .2s}
+.door:hover .tag-bar,.door:focus-visible .tag-bar{transform:scaleX(1);background-color:#FFCC00}
+.door:hover .tag-dot,.door:focus-visible .tag-dot{animation:blink 1s steps(1) infinite}
+a:focus-visible{outline:3px solid #FFCC00;outline-offset:4px}
+</style>
+<style>
+#site-menu[hidden]{display:none !important}
+#hud-layer > div{will-change:opacity}
+</style>
+</head>
+<body>
+<div style="font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; color: #ffffff; background: #000000; overflow-x: clip; position: relative">
+
+<header style="position: absolute; top: 0; left: 0; right: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px; padding: 20.4px clamp(17px, 3.4vw, 54.4px); background: transparent">
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px"><img src="logo.png" alt="Cyclone home" style="display: block; height: 28px; width: auto"></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px 26px">
+<nav aria-label="Primary" class="hud-nav" style="font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 26px; font-size: 12px; font-weight: 500; letter-spacing: 0.06em">
+<a href="#book2" class="hud-link" data-k="BOOK" data-v="NOW" aria-label="Book a courier" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #ffffff; text-decoration: none; white-space: nowrap"><span aria-hidden="true"><span class="k">BOOK</span><span style="color: #8a8a8a"> / </span><span class="v" style="color: #b8b8b8">NOW</span></span></a>
+<a href="#track2" class="hud-link" data-k="TRACK" data-v="LIVE" aria-label="Track a delivery" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #ffffff; text-decoration: none; white-space: nowrap"><span aria-hidden="true"><span class="k">TRACK</span><span style="color: #8a8a8a"> / </span><span class="v" style="color: #b8b8b8">LIVE</span></span></a>
+<a href="#why2" class="hud-link" data-k="WHY" data-v="CYCLONE" aria-label="Why Cyclone" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #ffffff; text-decoration: none; white-space: nowrap"><span aria-hidden="true"><span class="k">WHY</span><span style="color: #8a8a8a"> / </span><span class="v" style="color: #b8b8b8">CYCLONE</span></span></a>
+<a href="tel:014757000" class="hud-link" data-k="CALL" data-v="01 475 7000" aria-label="Call 01 475 7000" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #ffffff; text-decoration: none; white-space: nowrap"><span aria-hidden="true"><span class="k">CALL</span><span style="color: #8a8a8a"> / </span><span class="v" style="color: #b8b8b8">01 475 7000</span></span></a>
+<a href="#" class="hud-link" data-k="LOG IN" data-v="ACCOUNT" aria-label="Log in" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #ffffff; text-decoration: none; white-space: nowrap"><span aria-hidden="true"><span class="k">LOG IN</span><span style="color: #8a8a8a"> / </span><span class="v" style="color: #b8b8b8">ACCOUNT</span></span></a>
+</nav>
+
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="#join2" class="route" style="position: relative; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 1px solid #5c5c5c; color: #ffffff; text-decoration: none; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap">
+<svg aria-hidden="true" style="position: absolute; left: -1px; top: -1px; width: calc(100% + 2px); height: calc(100% + 2px); overflow: visible; pointer-events: none"><rect x="0" y="0" width="100%" height="100%" pathLength="100"></rect></svg>
+<span class="dot blink" aria-hidden="true" style="width: 7px; height: 7px; border-radius: 2px; background: #FFCC00"></span>Open an account</a>
+<button type="button" class="menu-btn" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" style="display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 16px; background: transparent; border: 1px solid #5c5c5c; color: #ffffff; cursor: pointer; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.06em">MENU<span aria-hidden="true" style="display: inline-flex; flex-direction: column; gap: 5px"><span style="display: block; width: 18px; height: 2px; background: #ffffff"></span><span style="display: block; width: 12px; height: 2px; background: #FFCC00"></span></span></button>
+</div>
+</div>
+</header>
+
+<section style="position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; min-height: max(600px, min(100vh, 1000px)); min-height: max(600px, min(100svh, 1000px)); padding: clamp(27.2px, 3.4vw, 54.4px) clamp(17px, 3.4vw, 54.4px) clamp(64px, 11vh, 128px); box-sizing: border-box">
+<video id="hero-video" autoplay muted loop playsinline preload="auto" poster="poster.jpg" aria-hidden="true" style="position: absolute; left: 0; top: clamp(64px, 11vh, 120px); width: 100%; height: calc(100% - clamp(64px, 11vh, 120px)); object-fit: cover; object-position: 50% 0%"><source src="hero.mp4" type="video/mp4"></video>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: clamp(64px, 11vh, 120px); height: clamp(60px, 9vh, 110px); background: linear-gradient(to bottom, #000000, rgba(0,0,0,0))"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.4) 100%)"></div>
+<div aria-hidden="true" style="position: relative; flex: 1 1 auto; min-height: 160px; margin: 60px 0 clamp(24px, 3vw, 40px); pointer-events: none; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: clamp(10px, 0.78vw, 13px); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase">
+<div id="hud-layer"></div>
+</div>
+<div style="position: relative; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px 48px">
+<h1 class="rise" style="margin: 0; font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(35.7px, 4.2vw, 71.4px); line-height: 1; font-weight: 600; letter-spacing: -0.035em"><span style="display: block">Driven by technology,</span><span style="display: block">delivered by hand.</span></h1>
+<div class="after">
+<a href="#book2" class="route" style="position: relative; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border: 1px solid #5c5c5c; color: #ffffff; text-decoration: none; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap">
+<svg aria-hidden="true" style="position: absolute; left: -1px; top: -1px; width: calc(100% + 2px); height: calc(100% + 2px); overflow: visible; pointer-events: none"><rect x="0" y="0" width="100%" height="100%" pathLength="100"></rect></svg>
+<span class="dot blink" aria-hidden="true" style="width: 7px; height: 7px; border-radius: 2px; background: #FFCC00"></span>Make a booking</a>
+</div>
+</div>
+<div role="status" aria-label="Live status" style="position: relative; flex: none; width: 100%; margin-top: clamp(24px, 2.6vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 6px 28px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; color: #b8b8b8">
+<span style="display: inline-flex; align-items: center; gap: 8px; color: #ffffff"><span class="blink" aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #FFCC00"></span>LIVE</span>
+<span>RIDERS ON THE ROAD / <span style="color: #ffffff"><span data-stat="riders">50</span></span></span>
+<span>AVG COLLECTION / <span style="color: #ffffff"><span data-stat="avg">22</span> MIN</span></span>
+<span>DELIVERIES TODAY / <span style="color: #ffffff"><span data-stat="deliveries">0</span></span></span>
+<span>DUBLIN / <span style="color: #ffffff"><span data-stat="clock">--:--</span></span></span>
+</div>
+</section>
+
+<nav aria-label="What you can do">
+<a id="book2" class="door" href="#" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 64px; padding: clamp(32px, 3.6vw, 56px) clamp(17px, 3.4vw, 54.4px); border-top: 1px solid #5c5c5c; color: #ffffff; text-decoration: none">
+<span style="display: flex; flex-direction: column; gap: 18px">
+<span class="door-tag" style="display: inline-flex; flex-direction: column; gap: 6px; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: #b8b8b8">
+<span style="display: flex; align-items: center; gap: 5px"><span class="tag-dot" style="width: 3px; height: 3px; background: #FFCC00"></span><span style="width: 12px; height: 1px; background: #8a8a8a"></span></span>
+<span><span style="color: #ffffff">BOOK</span> / NOW</span>
+<span class="tag-bar" style="display: block; width: 100%; height: 1px; background: #8a8a8a"></span>
+</span>
+<span class="door-word" style="font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(36px, 5vw, 80px); line-height: 1; font-weight: 600; letter-spacing: -0.04em">Book a courier</span>
+</span>
+<span style="max-width: 30ch; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.55; color: #e6e6e6">Same-day, nationwide and international delivery, from a bike to a van.</span>
+</a>
+<a id="track2" class="door" href="#" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 64px; padding: clamp(32px, 3.6vw, 56px) clamp(17px, 3.4vw, 54.4px); border-top: 1px solid #5c5c5c; color: #ffffff; text-decoration: none">
+<span style="display: flex; flex-direction: column; gap: 18px">
+<span class="door-tag" style="display: inline-flex; flex-direction: column; gap: 6px; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: #b8b8b8">
+<span style="display: flex; align-items: center; gap: 5px"><span class="tag-dot" style="width: 3px; height: 3px; background: #FFCC00"></span><span style="width: 12px; height: 1px; background: #8a8a8a"></span></span>
+<span><span style="color: #ffffff">TRACK</span> / LIVE</span>
+<span class="tag-bar" style="display: block; width: 100%; height: 1px; background: #8a8a8a"></span>
+</span>
+<span class="door-word" style="font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(36px, 5vw, 80px); line-height: 1; font-weight: 600; letter-spacing: -0.04em">Track a delivery</span>
+</span>
+<span style="max-width: 30ch; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.55; color: #e6e6e6">Enter your booking reference to see where your delivery is now.</span>
+</a>
+<a id="join2" class="door" href="#" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 64px; padding: clamp(32px, 3.6vw, 56px) clamp(17px, 3.4vw, 54.4px); border-top: 1px solid #5c5c5c; border-bottom: 1px solid #5c5c5c; color: #ffffff; text-decoration: none">
+<span style="display: flex; flex-direction: column; gap: 18px">
+<span class="door-tag" style="display: inline-flex; flex-direction: column; gap: 6px; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: #b8b8b8">
+<span style="display: flex; align-items: center; gap: 5px"><span class="tag-dot" style="width: 3px; height: 3px; background: #FFCC00"></span><span style="width: 12px; height: 1px; background: #8a8a8a"></span></span>
+<span><span style="color: #ffffff">ACCOUNT</span> / NEW</span>
+<span class="tag-bar" style="display: block; width: 100%; height: 1px; background: #8a8a8a"></span>
+</span>
+<span class="door-word" style="font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(36px, 5vw, 80px); line-height: 1; font-weight: 600; letter-spacing: -0.04em">Open an account</span>
+</span>
+<span style="max-width: 30ch; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.55; color: #e6e6e6">For businesses that send regularly. Book and track online, invoiced on 30-day terms.</span>
+</a>
+</nav>
+
+<section id="why2" aria-label="Why Cyclone" style="padding: clamp(68px, 8.5vw, 136px) clamp(17px, 3.4vw, 54.4px)">
+<div style="display: flex; justify-content: flex-end; border-bottom: 2px solid #ffffff; margin-bottom: clamp(56px, 7vw, 104px)">
+<div class="ride" style="width: min(62%, 900px); min-width: 300px; margin-bottom: -2px">
+<svg viewBox="0 120 1536 720" role="img" aria-label="Line drawing of a Cyclone electric cargo bike" style="display: block; width: 100%; height: auto; overflow: visible" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M95,392 C150,360 300,328 520,312 C700,302 850,305 905,338"></path>
+<path d="M110,410 C300,362 700,340 896,352"></path>
+<path d="M100,400 L238,622 L815,622 L902,342"></path>
+<path d="M238,622 L245,662 L810,662 L815,622"></path>
+<rect x="320" y="588" width="75" height="14" rx="5"></rect>
+<path d="M380,690 L760,690 M400,662 L400,690 M740,662 L740,690"></path>
+<path d="M705,692 L688,770 L692,822 M680,824 L748,824 M722,692 L740,758 L728,772"></path>
+<path d="M200,520 C190,580 166,630 150,670"></path>
+<path d="M13.7,620.4 A145,145 0 0 1 199.6,533.7"></path>
+<rect x="105" y="494" width="20" height="22" rx="4"></rect>
+<path d="M1108,569 A205,205 0 0 1 1504,569 L1516,602"></path>
+<path d="M1236,405 L1471,405 M1440,410 L1316,622 M1250,405 C1235,420 1225,428 1210,434"></path>
+<path d="M1114,295 C1120,282 1180,282 1200,290 C1230,284 1270,288 1274,300 C1270,312 1230,316 1200,312 C1170,316 1130,312 1114,295 Z"></path>
+<path d="M1191,316 L1140,410"></path>
+<path d="M861,485 L1060,505 C1100,500 1120,450 1140,410"></path>
+<path d="M1140,410 C1112,480 1090,560 1050,628"></path>
+<path d="M1150,422 L1306,622"></path>
+<path d="M1046,640 L1306,622"></path>
+<path d="M790,655 C850,660 880,650 900,640 C930,600 950,585 980,585"></path>
+<circle cx="1015" cy="632" r="58"></circle>
+<circle cx="1046" cy="640" r="10"></circle>
+<path d="M1046,640 L1092,652"></path>
+<path d="M902,340 L898,300 C895,270 900,240 904,225 C905,210 890,200 876,198 L850,196"></path>
+<path d="M876,198 C890,190 905,185 915,183"></path>
+<path d="M915,182 L985,188" stroke-width="9"></path>
+<rect x="850" y="145" width="65" height="16" rx="3"></rect>
+<g class="wheel wheel-front">
+<circle cx="150" cy="670" r="132" stroke-width="6"></circle>
+<circle cx="150" cy="670" r="112" stroke-width="2"></circle>
+<circle cx="150" cy="670" r="11" stroke-width="3"></circle>
+<line x1="161.3" y1="665.9" x2="262.0" y2="670.0" stroke-width="1.4"></line>
+<line x1="159.2" y1="677.7" x2="255.2" y2="708.3" stroke-width="1.4"></line>
+<line x1="161.3" y1="674.1" x2="235.8" y2="742.0" stroke-width="1.4"></line>
+<line x1="152.1" y1="681.8" x2="206.0" y2="767.0" stroke-width="1.4"></line>
+<line x1="156.0" y1="680.4" x2="169.4" y2="780.3" stroke-width="1.4"></line>
+<line x1="144.0" y1="680.4" x2="130.6" y2="780.3" stroke-width="1.4"></line>
+<line x1="147.9" y1="681.8" x2="94.0" y2="767.0" stroke-width="1.4"></line>
+<line x1="138.7" y1="674.1" x2="64.2" y2="742.0" stroke-width="1.4"></line>
+<line x1="140.8" y1="677.7" x2="44.8" y2="708.3" stroke-width="1.4"></line>
+<line x1="138.7" y1="665.9" x2="38.0" y2="670.0" stroke-width="1.4"></line>
+<line x1="138.0" y1="670.0" x2="44.8" y2="631.7" stroke-width="1.4"></line>
+<line x1="144.0" y1="659.6" x2="64.2" y2="598.0" stroke-width="1.4"></line>
+<line x1="140.8" y1="662.3" x2="94.0" y2="573.0" stroke-width="1.4"></line>
+<line x1="152.1" y1="658.2" x2="130.6" y2="559.7" stroke-width="1.4"></line>
+<line x1="147.9" y1="658.2" x2="169.4" y2="559.7" stroke-width="1.4"></line>
+<line x1="159.2" y1="662.3" x2="206.0" y2="573.0" stroke-width="1.4"></line>
+<line x1="156.0" y1="659.6" x2="235.8" y2="598.0" stroke-width="1.4"></line>
+<line x1="162.0" y1="670.0" x2="255.2" y2="631.7" stroke-width="1.4"></line>
+</g>
+<g class="wheel wheel-rear">
+<circle cx="1306" cy="622" r="188" stroke-width="6"></circle>
+<circle cx="1306" cy="622" r="162" stroke-width="2"></circle>
+<circle cx="1306" cy="622" r="11" stroke-width="3"></circle>
+<line x1="1317.3" y1="617.9" x2="1468.0" y2="622.0" stroke-width="1.4"></line>
+<line x1="1315.8" y1="628.9" x2="1462.5" y2="663.9" stroke-width="1.4"></line>
+<line x1="1317.8" y1="624.1" x2="1446.3" y2="703.0" stroke-width="1.4"></line>
+<line x1="1311.1" y1="632.9" x2="1420.6" y2="736.6" stroke-width="1.4"></line>
+<line x1="1315.2" y1="629.7" x2="1387.0" y2="762.3" stroke-width="1.4"></line>
+<line x1="1304.9" y1="634.0" x2="1347.9" y2="778.5" stroke-width="1.4"></line>
+<line x1="1310.1" y1="633.3" x2="1306.0" y2="784.0" stroke-width="1.4"></line>
+<line x1="1299.1" y1="631.8" x2="1264.1" y2="778.5" stroke-width="1.4"></line>
+<line x1="1303.9" y1="633.8" x2="1225.0" y2="762.3" stroke-width="1.4"></line>
+<line x1="1295.1" y1="627.1" x2="1191.4" y2="736.6" stroke-width="1.4"></line>
+<line x1="1298.3" y1="631.2" x2="1165.7" y2="703.0" stroke-width="1.4"></line>
+<line x1="1294.0" y1="620.9" x2="1149.5" y2="663.9" stroke-width="1.4"></line>
+<line x1="1294.7" y1="626.1" x2="1144.0" y2="622.0" stroke-width="1.4"></line>
+<line x1="1296.2" y1="615.1" x2="1149.5" y2="580.1" stroke-width="1.4"></line>
+<line x1="1294.2" y1="619.9" x2="1165.7" y2="541.0" stroke-width="1.4"></line>
+<line x1="1300.9" y1="611.1" x2="1191.4" y2="507.4" stroke-width="1.4"></line>
+<line x1="1296.8" y1="614.3" x2="1225.0" y2="481.7" stroke-width="1.4"></line>
+<line x1="1307.1" y1="610.0" x2="1264.1" y2="465.5" stroke-width="1.4"></line>
+<line x1="1301.9" y1="610.7" x2="1306.0" y2="460.0" stroke-width="1.4"></line>
+<line x1="1312.9" y1="612.2" x2="1347.9" y2="465.5" stroke-width="1.4"></line>
+<line x1="1308.1" y1="610.2" x2="1387.0" y2="481.7" stroke-width="1.4"></line>
+<line x1="1316.9" y1="616.9" x2="1420.6" y2="507.4" stroke-width="1.4"></line>
+<line x1="1313.7" y1="612.8" x2="1446.3" y2="541.0" stroke-width="1.4"></line>
+<line x1="1318.0" y1="623.1" x2="1462.5" y2="580.1" stroke-width="1.4"></line>
+</g>
+<image href="logo.png" x="290" y="432" width="440" height="114"></image>
+</svg>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 48px 64px">
+<p style="margin: 0; font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(34px, 4.4vw, 72px); line-height: 1.08; font-weight: 600; letter-spacing: -0.035em"><span style="display: block">Since 1988.</span><span style="display: block">Our own riders, not crowdsourced.</span><span style="display: block">Rated 4.8 on Trustpilot.</span></p>
+<figure style="margin: 0; max-width: 32ch">
+<blockquote style="margin: 0; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.5; font-style: italic; color: #ffffff">“I’ve used Cyclone for probably 35 to 40 years.”</blockquote>
+<figcaption style="margin-top: 14px; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; line-height: 1.6; text-transform: uppercase; letter-spacing: 0.06em; color: #b8b8b8">A customer on Trustpilot / <a href="#">Read reviews</a></figcaption>
+</figure>
+</div>
+</section>
+
+
+<footer style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; padding: 40.8px clamp(17px, 3.4vw, 54.4px) 47.6px; border-top: 1px solid #5c5c5c; color: #ffffff; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; line-height: 1.7">
+<div><img src="logo.png" alt="Cyclone" style="display: block; width: 150px; height: auto"></div>
+<div>Argus House, Blackpitts<br>Dublin 8<br><a href="tel:014757000">01 475 7000</a><br><span style="color: #8a8a8a">Irish-owned. ISO 9001 and 14001 certified.</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="#">Open an account</a>
+<a href="#">Log in</a>
+<a href="#">About Cyclone</a>
+<a href="#">Contact</a>
+</div>
+</footer>
+<div id="site-menu" hidden role="dialog" aria-modal="true" aria-label="Menu" class="menu-in" style="position: fixed; inset: 0; z-index: 50; display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; padding: 20px clamp(17px, 3.4vw, 54px) 28px; background: #000000; color: #ffffff">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<img src="logo.png" alt="Cyclone" style="display: block; height: 28px; width: auto">
+<button type="button" id="menu-close" aria-label="Close menu" style="display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 16px; background: transparent; border: 1px solid #5c5c5c; color: #ffffff; cursor: pointer; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.06em">CLOSE<span aria-hidden="true" style="font-size: 18px; line-height: 1">×</span></button>
+</div>
+<nav aria-label="Menu" style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: clamp(32px, 5vw, 72px) 0">
+<a href="#book2" data-close-menu class="menu-item" style="animation-delay: 0.15s; display: flex; align-items: baseline; gap: clamp(16px, 2.4vw, 40px); padding: clamp(6px, 0.8vw, 12px) 0; color: #ffffff; text-decoration: none">
+<span style="font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #8a8a8a">01</span>
+<span class="door-word" style="font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(44px, 6.6vw, 108px); line-height: 1; font-weight: 600; letter-spacing: -0.04em">Book a courier</span>
+</a>
+<a href="#track2" data-close-menu class="menu-item" style="animation-delay: 0.22s; display: flex; align-items: baseline; gap: clamp(16px, 2.4vw, 40px); padding: clamp(6px, 0.8vw, 12px) 0; color: #ffffff; text-decoration: none">
+<span style="font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #8a8a8a">02</span>
+<span class="door-word" style="font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(44px, 6.6vw, 108px); line-height: 1; font-weight: 600; letter-spacing: -0.04em">Track a delivery</span>
+</a>
+<a href="#join2" data-close-menu class="menu-item" style="animation-delay: 0.29s; display: flex; align-items: baseline; gap: clamp(16px, 2.4vw, 40px); padding: clamp(6px, 0.8vw, 12px) 0; color: #ffffff; text-decoration: none">
+<span style="font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #8a8a8a">03</span>
+<span class="door-word" style="font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(44px, 6.6vw, 108px); line-height: 1; font-weight: 600; letter-spacing: -0.04em">Open an account</span>
+</a>
+<a href="#why2" data-close-menu class="menu-item" style="animation-delay: 0.36s; display: flex; align-items: baseline; gap: clamp(16px, 2.4vw, 40px); padding: clamp(6px, 0.8vw, 12px) 0; color: #ffffff; text-decoration: none">
+<span style="font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #8a8a8a">04</span>
+<span class="door-word" style="font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(44px, 6.6vw, 108px); line-height: 1; font-weight: 600; letter-spacing: -0.04em">Why Cyclone</span>
+</a>
+<a href="#" data-close-menu class="menu-item" style="animation-delay: 0.43s; display: flex; align-items: baseline; gap: clamp(16px, 2.4vw, 40px); padding: clamp(6px, 0.8vw, 12px) 0; color: #ffffff; text-decoration: none">
+<span style="font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #8a8a8a">05</span>
+<span class="door-word" style="font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(44px, 6.6vw, 108px); line-height: 1; font-weight: 600; letter-spacing: -0.04em">Log in</span>
+</a>
+</nav>
+<div style="position: relative; border-bottom: 1px solid #5c5c5c; display: flex; justify-content: flex-end; margin-bottom: 20px">
+<div class="menu-bike" style="width: min(36%, 520px); min-width: 220px; margin-bottom: -1px">
+<svg viewBox="0 120 1536 720" role="img" aria-label="Line drawing of a Cyclone electric cargo bike" style="display: block; width: 100%; height: auto; overflow: visible" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M95,392 C150,360 300,328 520,312 C700,302 850,305 905,338"></path>
+<path d="M110,410 C300,362 700,340 896,352"></path>
+<path d="M100,400 L238,622 L815,622 L902,342"></path>
+<path d="M238,622 L245,662 L810,662 L815,622"></path>
+<rect x="320" y="588" width="75" height="14" rx="5"></rect>
+<path d="M380,690 L760,690 M400,662 L400,690 M740,662 L740,690"></path>
+<path d="M705,692 L688,770 L692,822 M680,824 L748,824 M722,692 L740,758 L728,772"></path>
+<path d="M200,520 C190,580 166,630 150,670"></path>
+<path d="M13.7,620.4 A145,145 0 0 1 199.6,533.7"></path>
+<rect x="105" y="494" width="20" height="22" rx="4"></rect>
+<path d="M1108,569 A205,205 0 0 1 1504,569 L1516,602"></path>
+<path d="M1236,405 L1471,405 M1440,410 L1316,622 M1250,405 C1235,420 1225,428 1210,434"></path>
+<path d="M1114,295 C1120,282 1180,282 1200,290 C1230,284 1270,288 1274,300 C1270,312 1230,316 1200,312 C1170,316 1130,312 1114,295 Z"></path>
+<path d="M1191,316 L1140,410"></path>
+<path d="M861,485 L1060,505 C1100,500 1120,450 1140,410"></path>
+<path d="M1140,410 C1112,480 1090,560 1050,628"></path>
+<path d="M1150,422 L1306,622"></path>
+<path d="M1046,640 L1306,622"></path>
+<path d="M790,655 C850,660 880,650 900,640 C930,600 950,585 980,585"></path>
+<circle cx="1015" cy="632" r="58"></circle>
+<circle cx="1046" cy="640" r="10"></circle>
+<path d="M1046,640 L1092,652"></path>
+<path d="M902,340 L898,300 C895,270 900,240 904,225 C905,210 890,200 876,198 L850,196"></path>
+<path d="M876,198 C890,190 905,185 915,183"></path>
+<path d="M915,182 L985,188" stroke-width="9"></path>
+<rect x="850" y="145" width="65" height="16" rx="3"></rect>
+<g class="wheel wheel-front">
+<circle cx="150" cy="670" r="132" stroke-width="6"></circle>
+<circle cx="150" cy="670" r="112" stroke-width="2"></circle>
+<circle cx="150" cy="670" r="11" stroke-width="3"></circle>
+<line x1="161.3" y1="665.9" x2="262.0" y2="670.0" stroke-width="1.4"></line>
+<line x1="159.2" y1="677.7" x2="255.2" y2="708.3" stroke-width="1.4"></line>
+<line x1="161.3" y1="674.1" x2="235.8" y2="742.0" stroke-width="1.4"></line>
+<line x1="152.1" y1="681.8" x2="206.0" y2="767.0" stroke-width="1.4"></line>
+<line x1="156.0" y1="680.4" x2="169.4" y2="780.3" stroke-width="1.4"></line>
+<line x1="144.0" y1="680.4" x2="130.6" y2="780.3" stroke-width="1.4"></line>
+<line x1="147.9" y1="681.8" x2="94.0" y2="767.0" stroke-width="1.4"></line>
+<line x1="138.7" y1="674.1" x2="64.2" y2="742.0" stroke-width="1.4"></line>
+<line x1="140.8" y1="677.7" x2="44.8" y2="708.3" stroke-width="1.4"></line>
+<line x1="138.7" y1="665.9" x2="38.0" y2="670.0" stroke-width="1.4"></line>
+<line x1="138.0" y1="670.0" x2="44.8" y2="631.7" stroke-width="1.4"></line>
+<line x1="144.0" y1="659.6" x2="64.2" y2="598.0" stroke-width="1.4"></line>
+<line x1="140.8" y1="662.3" x2="94.0" y2="573.0" stroke-width="1.4"></line>
+<line x1="152.1" y1="658.2" x2="130.6" y2="559.7" stroke-width="1.4"></line>
+<line x1="147.9" y1="658.2" x2="169.4" y2="559.7" stroke-width="1.4"></line>
+<line x1="159.2" y1="662.3" x2="206.0" y2="573.0" stroke-width="1.4"></line>
+<line x1="156.0" y1="659.6" x2="235.8" y2="598.0" stroke-width="1.4"></line>
+<line x1="162.0" y1="670.0" x2="255.2" y2="631.7" stroke-width="1.4"></line>
+</g>
+<g class="wheel wheel-rear">
+<circle cx="1306" cy="622" r="188" stroke-width="6"></circle>
+<circle cx="1306" cy="622" r="162" stroke-width="2"></circle>
+<circle cx="1306" cy="622" r="11" stroke-width="3"></circle>
+<line x1="1317.3" y1="617.9" x2="1468.0" y2="622.0" stroke-width="1.4"></line>
+<line x1="1315.8" y1="628.9" x2="1462.5" y2="663.9" stroke-width="1.4"></line>
+<line x1="1317.8" y1="624.1" x2="1446.3" y2="703.0" stroke-width="1.4"></line>
+<line x1="1311.1" y1="632.9" x2="1420.6" y2="736.6" stroke-width="1.4"></line>
+<line x1="1315.2" y1="629.7" x2="1387.0" y2="762.3" stroke-width="1.4"></line>
+<line x1="1304.9" y1="634.0" x2="1347.9" y2="778.5" stroke-width="1.4"></line>
+<line x1="1310.1" y1="633.3" x2="1306.0" y2="784.0" stroke-width="1.4"></line>
+<line x1="1299.1" y1="631.8" x2="1264.1" y2="778.5" stroke-width="1.4"></line>
+<line x1="1303.9" y1="633.8" x2="1225.0" y2="762.3" stroke-width="1.4"></line>
+<line x1="1295.1" y1="627.1" x2="1191.4" y2="736.6" stroke-width="1.4"></line>
+<line x1="1298.3" y1="631.2" x2="1165.7" y2="703.0" stroke-width="1.4"></line>
+<line x1="1294.0" y1="620.9" x2="1149.5" y2="663.9" stroke-width="1.4"></line>
+<line x1="1294.7" y1="626.1" x2="1144.0" y2="622.0" stroke-width="1.4"></line>
+<line x1="1296.2" y1="615.1" x2="1149.5" y2="580.1" stroke-width="1.4"></line>
+<line x1="1294.2" y1="619.9" x2="1165.7" y2="541.0" stroke-width="1.4"></line>
+<line x1="1300.9" y1="611.1" x2="1191.4" y2="507.4" stroke-width="1.4"></line>
+<line x1="1296.8" y1="614.3" x2="1225.0" y2="481.7" stroke-width="1.4"></line>
+<line x1="1307.1" y1="610.0" x2="1264.1" y2="465.5" stroke-width="1.4"></line>
+<line x1="1301.9" y1="610.7" x2="1306.0" y2="460.0" stroke-width="1.4"></line>
+<line x1="1312.9" y1="612.2" x2="1347.9" y2="465.5" stroke-width="1.4"></line>
+<line x1="1308.1" y1="610.2" x2="1387.0" y2="481.7" stroke-width="1.4"></line>
+<line x1="1316.9" y1="616.9" x2="1420.6" y2="507.4" stroke-width="1.4"></line>
+<line x1="1313.7" y1="612.8" x2="1446.3" y2="541.0" stroke-width="1.4"></line>
+<line x1="1318.0" y1="623.1" x2="1462.5" y2="580.1" stroke-width="1.4"></line>
+</g>
+<image href="logo.png" x="290" y="432" width="440" height="114"></image>
+</svg>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #b8b8b8">
+<span>CALL / <a href="tel:014757000" style="color: #ffffff; text-decoration: none">01 475 7000</a></span>
+<span>ARGUS HOUSE, BLACKPITTS, DUBLIN 8</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span class="blink" aria-hidden="true" style="width: 6px; height: 6px; border-radius: 50%; background: #FFCC00"></span><span style="color: #ffffff"><span data-stat="riders">50</span></span> RIDERS ON THE ROAD</span>
+</div>
+</div>
+
+
+
+</div>
+<script>
+(function () {
+  // ---------- Live status bar (placeholder figures until the dispatch feed is connected) ----------
+  var stats = { riders: 50, avg: 22 };
+  function setStat(name, value) {
+    document.querySelectorAll('[data-stat="' + name + '"]').forEach(function (el) { el.textContent = value; });
+  }
+  function tickStatus() {
+    var clock = '--:--', mins = 12 * 60;
+    try {
+      var parts = new Intl.DateTimeFormat('en-IE', { timeZone: 'Europe/Dublin', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+      var get = function (t) { var p = parts.find(function (x) { return x.type === t; }); return Number(p ? p.value : 0); };
+      clock = String(get('hour')).padStart(2, '0') + ':' + String(get('minute')).padStart(2, '0');
+      mins = get('hour') * 60 + get('minute') + get('second') / 60;
+    } catch (e) {}
+    var start = 8 * 60 + 30, end = 17 * 60 + 30;           // working day 08:30 to 17:30
+    var f = Math.min(1, Math.max(0, (mins - start) / (end - start)));
+    var deliveries = Math.round(950 * f * f * (3 - 2 * f)); // builds to 950 by close
+    var r = Math.random();
+    stats.riders = Math.max(45, Math.min(55, stats.riders + (r > 0.85 ? 1 : r < 0.15 ? -1 : 0)));
+    stats.avg = Math.max(18, Math.min(26, stats.avg + (r > 0.95 ? 1 : r < 0.04 ? -1 : 0)));
+    setStat('clock', clock); setStat('deliveries', deliveries); setStat('riders', stats.riders); setStat('avg', stats.avg);
+  }
+  tickStatus(); setInterval(tickStatus, 3000);
+
+  // ---------- HUD labels synced to the hero video ----------
+  var HUD = [
+    [0.4,'TRACKING','LIVE',68,20,1],[1.1,'GPS','LOCKED',84,32,1],[1.8,'SIGNAL','99.8%',8,24,0],[2.4,'SYNC','COMPLETE',70,46,0],[3.1,'NEXT STOP','02',6,52,0],[3.8,'ORDER','08391',78,58,0],[4.4,'DELIVERY','EN ROUTE',14,38,1],[5.0,'ZONE','DUB-04',80,22,0],[5.6,'ROUTE','ACTIVE',4,60,0],[6.2,'WAYPOINT','18',66,36,1],
+    [7.6,'ORDER','08391',80,30,0],[8.2,'SIGNAL','99.6%',84,56,1],[8.8,'COURIER','ONLINE',6,26,1],[9.4,'TRACKING','LIVE',30,18,0],[10.0,'SCAN','LIVE',82,42,0],[10.6,'PICKUP','READY',6,46,1],[11.2,'NEXT STOP','03',60,16,1],[11.8,'GPS','LOCKED',84,66,0],[12.4,'ZONE','DUB-04',8,58,0],[13.0,'ROUTE','OPTIMISED',78,18,0],[13.6,'DISPATCH','SENT',40,22,1],
+    [15.0,'ZONE','DUB-04',72,18,0],[15.4,'ETA','04:32',8,30,0],[16.0,'WAYPOINT','18',10,50,1],[16.6,'TRACKING','LIVE',68,44,0],[17.2,'DISPATCH','SENT',84,28,0],[17.8,'SCAN','VERIFIED',70,62,0],[18.4,'COURIER','ONLINE',6,40,0],[19.0,'ROUTE','OPTIMISED',80,16,1],[19.6,'GPS','LOCKED',72,54,0],[20.2,'ETA','04:28',6,22,1],[20.8,'SIGNAL','99.8%',84,40,0],[21.4,'SYNC','COMPLETE',68,26,1],[22.0,'COURIER','ONLINE',10,56,1]
+  ];
+  var LIFE = 2.2, CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%';
+  var layer = document.getElementById('hud-layer');
+  var video = document.getElementById('hero-video');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nodes = HUD.map(function (h) {
+    var color = h[5] ? '#FFCC00' : '#ffffff';
+    var el = document.createElement('div');
+    el.style.cssText = 'position:absolute;left:' + h[3] + '%;top:' + h[4] + '%;color:' + color + ';white-space:nowrap;text-shadow:0 0 10px rgba(0,0,0,.55);opacity:0';
+    el.innerHTML = '<span style="display:flex;align-items:center;gap:5px;margin-bottom:6px"><span style="width:3px;height:3px;background:' + color + '"></span><span style="width:12px;height:1px;background:' + color + '"></span></span>' +
+      '<span class="k"></span><span style="opacity:.55"> / </span><span class="v"></span>' +
+      '<span class="bar" style="display:block;height:1px;margin-top:6px;width:0;background:' + color + '"></span>';
+    layer.appendChild(el);
+    return { el: el, k: el.querySelector('.k'), v: el.querySelector('.v'), bar: el.querySelector('.bar') };
+  });
+  function decode(str, p, frame, off) {
+    return str.split('').map(function (c, i) {
+      return (c === ' ' || c === '.' || i < str.length * p) ? c : CHARS[(frame * 31 + (i + off) * 17) % CHARS.length];
+    }).join('');
+  }
+  function renderHud() {
+    var t = video ? video.currentTime : 0, frame = Math.floor(t * 24);
+    HUD.forEach(function (h, i) {
+      var n = nodes[i], age = t - h[0];
+      if (age < 0 || age > LIFE) { if (n.el.style.opacity !== '0') n.el.style.opacity = '0'; return; }
+      var p = reduce ? 1 : Math.min(1, age / 0.4);
+      var op = age > LIFE - 0.3 ? Math.max(0, (LIFE - age) / 0.3) : 1;
+      n.el.style.opacity = op.toFixed(2);
+      n.k.textContent = decode(h[1], p, frame + i * 7, 0);
+      n.v.textContent = decode(h[2], p, frame + i * 7, 9);
+      n.bar.style.width = Math.round(p * 100) + '%';
+    });
+    requestAnimationFrame(renderHud);
+  }
+  if (layer && video) requestAnimationFrame(renderHud);
+
+
+  // ---------- HUD navigation: letters decode on hover ----------
+  document.querySelectorAll('.hud-link').forEach(function (a) {
+    var k = a.dataset.k, v = a.dataset.v, kEl = a.querySelector('.k'), vEl = a.querySelector('.v'), timer = null;
+    function run() {
+      if (reduce) return;
+      var f = 0, total = 11;
+      clearInterval(timer);
+      timer = setInterval(function () {
+        f++;
+        var mix = function (s) { return s.split('').map(function (c, i) { return (c === ' ' || c === '/' || i < s.length * f / total) ? c : CHARS[Math.floor(Math.random() * CHARS.length)]; }).join(''); };
+        if (f >= total) { clearInterval(timer); kEl.textContent = k; vEl.textContent = v; }
+        else { kEl.textContent = mix(k); vEl.textContent = mix(v); }
+      }, 34);
+    }
+    a.addEventListener('mouseenter', run);
+    a.addEventListener('focus', run);
+  });
+
+  // ---------- Full-screen menu ----------
+  var menu = document.getElementById('site-menu');
+  var openBtn = document.getElementById('menu-open');
+  function openMenu() { menu.hidden = false; openBtn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; var c = document.getElementById('menu-close'); if (c) c.focus(); }
+  function closeMenu() { menu.hidden = true; openBtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+  if (menu && openBtn) {
+    openBtn.addEventListener('click', openMenu);
+    document.getElementById('menu-close').addEventListener('click', closeMenu);
+    menu.querySelectorAll('[data-close-menu]').forEach(function (a) { a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { closeMenu(); openBtn.focus(); } });
+  }
+})();
+</script>
+</body>
+</html>
